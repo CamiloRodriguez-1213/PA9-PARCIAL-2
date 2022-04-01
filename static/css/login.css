@@ -1,0 +1,7 @@
+.form-div{
+    background-color: #ffff;
+    border-radius: 2%;
+}
+.center{
+    display: flex; justify-content: center;
+}

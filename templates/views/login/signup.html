@@ -1,0 +1,47 @@
+{% extends 'base.html'%}
+{% block librerias %}
+<title>Registro | My-App</title>
+<link rel="stylesheet" href="{{url_for('static',filename='css/login.css')}}">
+{% endblock %}
+{% block contenido %}
+<div class="container py-5 col-sm-8 col-md-3">
+            <div class="card">
+                <div class="card-header bg-dark text-white text-center">
+                    <i class='fa fa-user'>&nbsp;</i>Registrarse
+                </div>
+                <div class="center mt-4">
+                    <img src="{{url_for('static',filename='img/programmer.png')}}" width="30%" alt="">
+                </div>
+                <div class="card-body" style="padding-top: 20px; ">
+                    <form class="form form-center" method="post" action="{{url_for('signup')}}">
+                        <input class="form-control" type="text" value="{{name}}" required name="name" tabindex="1"  placeholder="Nombre de Usuario" size="30"><br>
+                        <input class="form-control" type="email" value="{{email}}" required autocomplete="off" name="email" tabindex="2"  placeholder="Correo electrónico" size="40"><br>
+                        <input class="form-control" type="password" value="{{password}}" required autocomplete="off" name="password"  tabindex="3" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,20}" title="El campo contraseña debe contener un mínimo 
+                        de 8 caracteres, un máximo de 20, letras, (minúsculas y MAYÚSCULAS) y Números " placeholder="Contraseña" size="30">
+                        <p class="card-text mt-3 text-center">
+                            <button type="submit" class="btn btn-outline-danger" tabindex="4" style="width: 100%;">Registrarse</button>
+                        </p>
+                    </form>
+                    <p class="card-text mt-3 text-center" >
+                        <small>or login with</small> <br>
+                        <button type="button" class="btn btn-block btn-outline-primary" tabindex="5" id="googleSignIn">
+                            <i class="fa fa-google"></i> Iniciar sesion con google
+                        </button>
+                    </p>
+                    <p class="card-text mt-3 text-center" >
+                        {% with messages = get_flashed_messages() %}
+                            {% if messages %}
+                            <ul class="alert alert-danger">
+                                {% for message in messages %}
+                                <li>{{message}}</li>
+                                {% endfor %}
+                            </ul>
+                            {% endif %}
+                        {% endwith %}   
+                    </p>
+                </div>
+            </div>
+        
+</div>
+
+{% endblock %}

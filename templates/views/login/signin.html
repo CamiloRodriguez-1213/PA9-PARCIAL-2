@@ -1,0 +1,44 @@
+{% extends 'base.html'%}
+{% block librerias %}
+<title>Login</title>
+<link rel="stylesheet" href="{{url_for('static',filename='css/login.css')}}">
+{% endblock %}
+{% block contenido %}
+<div class="container py-5 col-sm-8 col-md-3">
+            <div class="card">
+                <div class="card-header bg-dark text-white text-center">
+                    
+                    <i class='fa fa-user'>&nbsp;</i>Iniciar Sesión
+                    
+                </div>
+                <div class="center mt-4">
+                    
+                        <img src="{{url_for('static',filename='img/programmer.png')}}" width="30%" alt="">
+                    
+                </div>
+                <div class="card-body" style="padding-top: 20px; ">
+                    
+                    <form class="form form-center" method="post" action="/signin" id="formLogin">
+                        <!-- <input class="form-control" type="text" name="name" placeholder="Nombre"><br> -->
+                        <input class="form-control" type="email" name="email" tabindex="1" placeholder="Correo electrónico"><br>
+                        <input class="form-control" type="password" id="password" name="password" required autocomplete="on" tabindex="2" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{5,20}" title="El campo contraseña debe contener un mínimo 
+                        de 8 caracteres, un máximo de 20, letras, (minúsculas y MAYÚSCULAS) y Números " placeholder="Contraseña" size="30">
+                        <p class="card-text mt-3 text-center">
+                            <button type="submit" class="btn btn-outline-danger" tabindex="3" style="width: 100%;">Ingresar</button>
+                        </p>
+                    </form>
+                    <p class="card-text mt-3 text-center" >
+                        <small>or login with</small> <br>
+                        <button type="button" class="btn btn-block btn-outline-primary" id="googleSignIn">
+                            <i class="fa fa-google"></i> Iniciar sesion con google
+                        </button>
+                    </p>
+                    <div role="alert" id="alerta">
+                       
+                    </div>
+                </div>
+            </div>
+        
+</div>
+
+{% endblock %}
