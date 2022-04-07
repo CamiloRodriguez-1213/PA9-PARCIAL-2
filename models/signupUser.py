@@ -9,12 +9,10 @@ def User(email,passwordCod):
     try:
         cursor.execute("SELECT * FROM users WHERE email = '"+email+"'")
         myresult = cursor.fetchone()
-        check_password_hash(myresult[3],passwordCod)
-        if(check_password_hash):
-            print("Autenticación correcta")
+        if myresult != None:
+            print("Ya se encuentra registrado este usuario")
         else:
-            print("Usuario incorrecto")
-        
+            print("Usuario registrado exitosamente")
         print("Query Excecuted successfully")
     except:
         db.rollback()

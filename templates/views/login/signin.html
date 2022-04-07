@@ -8,7 +8,8 @@
             <div class="card">
                 <div class="card-header bg-dark text-white text-center">
                     
-                    <i class='fa fa-user'>&nbsp;</i>Iniciar Sesión
+                    
+                    <p><i class='fa fa-user'></i> Iniciar Sesión</p>
                     
                 </div>
                 <div class="center mt-4">
@@ -20,9 +21,8 @@
                     
                     <form class="form form-center" method="post" action="/signin" id="formLogin">
                         <!-- <input class="form-control" type="text" name="name" placeholder="Nombre"><br> -->
-                        <input class="form-control" type="email" name="email" tabindex="1" placeholder="Correo electrónico"><br>
-                        <input class="form-control" type="password" id="password" name="password" required autocomplete="on" tabindex="2" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{5,20}" title="El campo contraseña debe contener un mínimo 
-                        de 8 caracteres, un máximo de 20, letras, (minúsculas y MAYÚSCULAS) y Números " placeholder="Contraseña" size="30">
+                        <input class="form-control" type="email" name="email" tabindex="1" value="enderkramcr482@gmail.com" placeholder="Correo electrónico"><br>
+                        <input class="form-control" type="password" id="password" name="password" value="Endercr1213%" required autocomplete="on" tabindex="2" placeholder="Contraseña" size="30">
                         <p class="card-text mt-3 text-center">
                             <button type="submit" class="btn btn-outline-danger" tabindex="3" style="width: 100%;">Ingresar</button>
                         </p>
@@ -33,9 +33,18 @@
                             <i class="fa fa-google"></i> Iniciar sesion con google
                         </button>
                     </p>
-                    <div role="alert" id="alerta">
-                       
-                    </div>
+                    <p class="card-text mt-3 text-center" >
+                        {% with messages = get_flashed_messages() %}
+                            {% if messages %}
+                            <ul class="alert alert-danger">
+                                <small>Campos requeridos *</small>
+                                {% for message in messages %}
+                                <li style="padding-left: 10px; list-style: none;"><small>{{message}}</small></li>
+                                {% endfor %}
+                            </ul>
+                            {% endif %}
+                        {% endwith %}   
+                    </p>
                 </div>
             </div>
         

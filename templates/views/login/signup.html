@@ -14,9 +14,9 @@
                 </div>
                 <div class="card-body" style="padding-top: 20px; ">
                     <form class="form form-center" method="post" action="{{url_for('signup')}}">
-                        <input class="form-control" type="text" value="{{name}}" required name="name" tabindex="1"  placeholder="Nombre de Usuario" size="30"><br>
-                        <input class="form-control" type="email" value="{{email}}" required autocomplete="off" name="email" tabindex="2"  placeholder="Correo electrónico" size="40"><br>
-                        <input class="form-control" type="password" value="{{password}}" required autocomplete="off" name="password"  tabindex="3" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,20}" title="El campo contraseña debe contener un mínimo 
+                        <input class="form-control" type="text" value="{{name}}" name="name" tabindex="1" autocomplete="off"  placeholder="Nombre de Usuario" size="30"><br>
+                        <input class="form-control" type="text" value="{{email}}"  name="email" tabindex="2"  placeholder="Correo electrónico" size="40"><br>
+                        <input class="form-control" type="password" value="{{password}}" autocomplete="off" name="password"  tabindex="3" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,20}" title="El campo contraseña debe contener un mínimo 
                         de 8 caracteres, un máximo de 20, letras, (minúsculas y MAYÚSCULAS) y Números " placeholder="Contraseña" size="30">
                         <p class="card-text mt-3 text-center">
                             <button type="submit" class="btn btn-outline-danger" tabindex="4" style="width: 100%;">Registrarse</button>
@@ -33,7 +33,7 @@
                             {% if messages %}
                             <ul class="alert alert-danger">
                                 {% for message in messages %}
-                                <li>{{message}}</li>
+                                <li style="padding-left: 10px; list-style: none;"><small>{{message}}</small></li>
                                 {% endfor %}
                             </ul>
                             {% endif %}
