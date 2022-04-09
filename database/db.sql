@@ -24,7 +24,7 @@ CREATE TABLE IF NOT EXISTS `users` (
   `email` varchar(250) NOT NULL DEFAULT '',
   `password` varchar(250) NOT NULL DEFAULT '',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- La exportación de datos fue deseleccionada.
 

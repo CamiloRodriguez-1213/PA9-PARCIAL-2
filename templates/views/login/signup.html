@@ -4,7 +4,7 @@
 <link rel="stylesheet" href="{{url_for('static',filename='css/login.css')}}">
 {% endblock %}
 {% block contenido %}
-<div class="container py-5 col-sm-8 col-md-3">
+<div class="container py-5 col-10 col-sm-10 col-md-8 col-lg-5 col-xl-3">
             <div class="card">
                 <div class="card-header bg-dark text-white text-center">
                     <i class='fa fa-user'>&nbsp;</i>Registrarse
@@ -14,9 +14,9 @@
                 </div>
                 <div class="card-body" style="padding-top: 20px; ">
                     <form class="form form-center" method="post" action="{{url_for('signup')}}">
-                        <input class="form-control" type="text" value="{{name}}" name="name" tabindex="1" autocomplete="off"  placeholder="Nombre de Usuario" size="30"><br>
-                        <input class="form-control" type="text" value="{{email}}"  name="email" tabindex="2"  placeholder="Correo electrónico" size="40"><br>
-                        <input class="form-control" type="password" value="{{password}}" autocomplete="off" name="password"  tabindex="3" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,20}" title="El campo contraseña debe contener un mínimo 
+                        <input class="form-control" type="text" value="Camilo" name="name" tabindex="1" autocomplete="off"  placeholder="Nombre de Usuario" size="30"><br>
+                        <input class="form-control" type="text" value="enderkramcr482@gmail.com"  name="email" tabindex="2"  placeholder="Correo electrónico" size="40"><br>
+                        <input class="form-control" type="password" value="Endercr1213%" autocomplete="off" name="password"  tabindex="3" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,20}" title="El campo contraseña debe contener un mínimo 
                         de 8 caracteres, un máximo de 20, letras, (minúsculas y MAYÚSCULAS) y Números " placeholder="Contraseña" size="30">
                         <p class="card-text mt-3 text-center">
                             <button type="submit" class="btn btn-outline-danger" tabindex="4" style="width: 100%;">Registrarse</button>
@@ -32,6 +32,7 @@
                         {% with messages = get_flashed_messages() %}
                             {% if messages %}
                             <ul class="alert alert-danger">
+                                <small>Campos requeridos *</small>
                                 {% for message in messages %}
                                 <li style="padding-left: 10px; list-style: none;"><small>{{message}}</small></li>
                                 {% endfor %}

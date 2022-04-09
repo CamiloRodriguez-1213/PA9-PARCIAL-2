@@ -1,0 +1,25 @@
+{% extends 'base.html'%}
+{% block librerias %}
+<title>Autenticación</title>
+{% endblock %}
+{% block nav %}
+{% endblock %}
+
+{% block contenido %}
+<div class="container py-5 col-10 col-sm-10 col-md-8 col-lg-5 col-xl-3">
+    <p class="card-text mt-5 text-center" >
+        <img src="" alt="">
+        {% with messages = get_flashed_messages() %}
+            {% if messages %}
+            <ul class="alert alert-danger text-center">
+                {% for message in messages %}
+                <li style="padding-left: 10px; list-style: none;"><small>{{message}}</small></li>
+                {% endfor %}
+            </ul>
+            {% endif %}
+        {% endwith %}   
+    </p>
+        
+</div>
+
+{% endblock %}

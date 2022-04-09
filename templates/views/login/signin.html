@@ -4,7 +4,7 @@
 <link rel="stylesheet" href="{{url_for('static',filename='css/login.css')}}">
 {% endblock %}
 {% block contenido %}
-<div class="container py-5 col-sm-8 col-md-3">
+<div class="container py-5 col-10 col-sm-10 col-md-8 col-lg-5 col-xl-3">
             <div class="card">
                 <div class="card-header bg-dark text-white text-center">
                     
@@ -21,8 +21,8 @@
                     
                     <form class="form form-center" method="post" action="/signin" id="formLogin">
                         <!-- <input class="form-control" type="text" name="name" placeholder="Nombre"><br> -->
-                        <input class="form-control" type="email" name="email" tabindex="1" value="enderkramcr482@gmail.com" placeholder="Correo electrónico"><br>
-                        <input class="form-control" type="password" id="password" name="password" value="Endercr1213%" required autocomplete="on" tabindex="2" placeholder="Contraseña" size="30">
+                        <input class="form-control" value="{{email}}" type="email" name="email" tabindex="1" placeholder="Correo electrónico"><br>
+                        <input class="form-control"  type="password" id="password" name="password" required autocomplete="on" tabindex="2" placeholder="Contraseña" size="30">
                         <p class="card-text mt-3 text-center">
                             <button type="submit" class="btn btn-outline-danger" tabindex="3" style="width: 100%;">Ingresar</button>
                         </p>
@@ -36,8 +36,7 @@
                     <p class="card-text mt-3 text-center" >
                         {% with messages = get_flashed_messages() %}
                             {% if messages %}
-                            <ul class="alert alert-danger">
-                                <small>Campos requeridos *</small>
+                            <ul class="alert alert-danger text-center">
                                 {% for message in messages %}
                                 <li style="padding-left: 10px; list-style: none;"><small>{{message}}</small></li>
                                 {% endfor %}
