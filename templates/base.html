@@ -1,3 +1,5 @@
+
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -19,49 +21,12 @@
     <link href="https://cdn.datatables.net/1.11.5/css/jquery.dataTables.min.css" rel="stylesheet" type="text/css">
     <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
     <script src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body>
+    
     {% block nav %}
-    <header>
-        <nav class="navbar navbar-expand-lg navbar-light bg-warning" style="background-color: #ffff;">
-            <div class="container">
-                <a class="navbar-brand" href="/"><img src="https://sigedin.itp.edu.co/sigeitp/sigedin_excel/imagenes/Logo_ITP%20(1).png" alt="ITP" width="50" height="50"></a>
-                <a class="navbar-brand" href="/"><strong>My App</strong></a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
-                    aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
-                                data-bs-toggle="dropdown" aria-expanded="false">
-                                About
-                            </a>
-                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <li><a class="dropdown-item" href="#">Suport</a></li>
-                                <li><a class="dropdown-item" href="#">API</a></li>
-                                <li><hr class="dropdown-divider"></li>
-                                <li><a class="dropdown-item" href="#">Developers</a></li>
-                            </ul>
-                        </li>
-                    </ul>
-                    
-                        <form class="d-flex">
-                            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                                <li class="nav-item">
-                                    <a class="nav-link active" aria-current="page" href="{{url_for('signin')}}">Iniciar Sesión</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link active" aria-current="page" href="{{url_for('signup')}}">Registrarse</a>
-                                </li>
-                            </ul>
-                        </form>
-                </div>
-            </div>
-        </nav>
-    </header>
+        {% include 'header.html'%}
     {% endblock %}
 
     
@@ -69,7 +34,9 @@
     {% endblock %}
    
     
-
+    {% block footer %}
+        {% include 'footer.html'%}
+    {% endblock %}
 {% block scripts %}
 {% endblock %}
 </body>

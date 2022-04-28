@@ -1,7 +1,7 @@
 from dotenv import load_dotenv
 import os
 #sirve para leer variables de entorno
-#Carga de rchivo .env a las variables de entorno
+#Carga de archivo .env a las variables de entorno
 load_dotenv()
 MYSQL_HOSTNAME = os.environ.get('MYSQL_HOSTNAME')
 MYSQL_USERNAME = os.environ.get('MYSQL_USERNAME')

@@ -1,56 +1,42 @@
 {% extends 'base.html'%}
 
+
 {% block librerias %}
-    <title>Inicio - MyApp</title>
+<title>Dashboard - MyApp</title>
 {% endblock %}
-
-
+{% block navbar %}
+{% endblock %}
 {% block contenido %}
+
 <div class="container mt-5" >
-    <div class="row">
-        <div >
-            <table id='productsTable' class='table display dataTable' width='100%'>
-                <thead class="thead-dark">
-                <tr>
-                    <th>ID</th>
-                    <th>Nombre Producto</th>
-                    <th>Descripción</th>
-                    <th>Cantidad</th>
-                    <th>Price</th>
-                </tr>
-                </thead>
-            </table>
-        </div>
-   </div>
+    <div class="row row-cols-1 row-cols-md-2 g-4">
+        {% for image in images %}
+            <div class="col">
+                <div class="card">
+                    <div class="btn-group dropleft my-1" style="display: flex; justify-content: end;"> 
+                        <i class="fa fa-ellipsis-v py-1 ml-2" style="width: 20px; height: 20px; font-size:20px" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false"></i>
+                          <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                            <li><a class="dropdown-item" href="{{url_for('editImage',id=image[0])}}">Editar</a></li>
+                            <li>
+                                <a class="dropdown-item" href="{{url_for('changeStatus',id=image[0],status=image[4])}}">
+                                    {% if image[4] =='activo' %}
+                                        Inactivar
+                                    {% elif image[4] =='inactivo' %}
+                                        Activar
+                                    {% endif %}
+                                </a>
+                            </li>
+                            <li><a class="dropdown-item" href="{{url_for('deleteImage',id=image[0])}}">Eliminar</a></li>
+                        </ul>
+                    </div>
+                    <img src="./static/images/{{image[2]}}" class="card-img-top" alt="{{image[1]}}">
+                    <div class="card-body">
+                        <h5 class="card-title">{{image[1]}}</h5>
+                        <p class="card-text">Autor : {{image[5]}}</p>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
 </div>
 {% endblock %}
-
-{% block scripts %}
-<script>
-    $(document).ready(function() {
-    var datosTabla = $('#productsTable')
-        
-    datosTabla.DataTable({
-            'processing': true,
-            'serverSide': true,
-            'serverMethod': 'post',
-            'ajax': {
-                'url':'/tabla'
-            },
-            'lengthMenu': [[5, 10, 25, 50, 100], [5, 10, 25, 50, 100]],
-            searching: true,
-            sort: true,
-            "serverSide": true,
-            'columns': [
-                { data: 'id' },
-                { data: 'name_product' },
-                { data: 'description' },
-                { data: 'amount' },
-                { data: 'price' },
-            ]
-        });
-    });
-    
-</script>
-{% endblock %}
-

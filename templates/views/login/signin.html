@@ -5,48 +5,55 @@
 {% endblock %}
 {% block contenido %}
 <div class="container py-5 col-10 col-sm-10 col-md-8 col-lg-5 col-xl-3">
-            <div class="card">
-                <div class="card-header bg-dark text-white text-center">
-                    
-                    
-                    <p><i class='fa fa-user'></i> Iniciar Sesión</p>
-                    
-                </div>
-                <div class="center mt-4">
-                    
-                        <img src="{{url_for('static',filename='img/programmer.png')}}" width="30%" alt="">
-                    
-                </div>
-                <div class="card-body" style="padding-top: 20px; ">
-                    
-                    <form class="form form-center" method="post" action="/signin" id="formLogin">
-                        <!-- <input class="form-control" type="text" name="name" placeholder="Nombre"><br> -->
-                        <input class="form-control" value="{{email}}" type="email" name="email" tabindex="1" placeholder="Correo electrónico"><br>
-                        <input class="form-control"  type="password" id="password" name="password" required autocomplete="on" tabindex="2" placeholder="Contraseña" size="30">
-                        <p class="card-text mt-3 text-center">
-                            <button type="submit" class="btn btn-outline-danger" tabindex="3" style="width: 100%;">Ingresar</button>
-                        </p>
-                    </form>
-                    <p class="card-text mt-3 text-center" >
-                        <small>or login with</small> <br>
-                        <button type="button" class="btn btn-block btn-outline-primary" id="googleSignIn">
-                            <i class="fa fa-google"></i> Iniciar sesion con google
-                        </button>
-                    </p>
-                    <p class="card-text mt-3 text-center" >
-                        {% with messages = get_flashed_messages() %}
-                            {% if messages %}
-                            <ul class="alert alert-danger text-center">
-                                {% for message in messages %}
-                                <li style="padding-left: 10px; list-style: none;"><small>{{message}}</small></li>
-                                {% endfor %}
-                            </ul>
-                            {% endif %}
-                        {% endwith %}   
-                    </p>
-                </div>
-            </div>
-        
+    <div class="card">
+        <div class="card-header bg-dark text-white text-center">
+            <p><i class='fa fa-user'></i> Iniciar Sesión</p>
+        </div>
+        <div class="center mt-4">
+            <img src="{{url_for('static',filename='img/programmer.png')}}" width="30%" alt="">
+        </div>
+        <div class="card-body" style="padding-top: 20px; ">
+
+            <form class="form form-center" method="post" action="{{url_for('signin')}}" id="formLogin">
+                <!-- <input class="form-control" type="text" name="name" placeholder="Nombre"><br> -->
+                <input class="form-control" value="{{email}}" type="email" name="email" tabindex="1"
+                    placeholder="Correo electrónico"><br>
+                <input class="form-control" type="password" id="password" name="password" required autocomplete="on"
+                    tabindex="2" placeholder="Contraseña" size="30">
+                <p class="card-text mt-3 text-center">
+                    <button type="submit" class="btn btn-outline-danger" tabindex="3"
+                        style="width: 100%;">Ingresar</button>
+                </p>
+            </form>
+            <p class="card-text mt-3 text-center">
+                <small>
+                    <a href="{{url_for('restorePassword')}}">¿Olvidaste tu contraseña?</a></small>
+                </small>
+            </p>
+            <p class="card-text mt-3 text-center">
+                {% with messages = get_flashed_messages(category_filter=["error"]) %}
+                {% if messages %}
+                <ul class="alert alert-danger">
+                    <small>Campos requeridos *</small>
+                    {% for message in messages %}
+                    <li style="padding-left: 10px; list-style: none;"><small>{{message}}</small></li>
+                    {% endfor %}
+                </ul>
+                {% endif %}
+                {% endwith %}
+                {% with messages = get_flashed_messages(category_filter=["good"]) %}
+                {% if messages %}
+                <ul class="alert alert-success text-center">
+                    {% for message in messages %}
+                    <li style="padding-left: 10px; list-style: none;"><small>{{message}}</small></li>
+                    {% endfor %}
+                </ul>
+                {% endif %}
+                {% endwith %}
+            </p>
+        </div>
+    </div>
+
 </div>
 
 {% endblock %}
